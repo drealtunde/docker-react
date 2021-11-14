@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - Docker build -t marlian/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true marlian/docker-react npm run test
